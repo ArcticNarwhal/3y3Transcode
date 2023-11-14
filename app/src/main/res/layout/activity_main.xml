@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -30,32 +29,44 @@
             android:padding="16dp"
             app:layout_constraintWidth_max="400dp">
 
-            <EditText
-                android:id="@+id/input"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/input_hint"
-                android:inputType="textMultiLine"
-                app:layout_constraintBottom_toTopOf="@id/output"
+                app:layout_constraintBottom_toTopOf="@id/outputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_hint"
+                    android:inputType="textMultiLine"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <EditText
-                android:id="@+id/output"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/output_hint"
-                android:inputType="none"
-                android:editable="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/input"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@id/inputLayout" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/output"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/output_hint"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
