@@ -3,4 +3,8 @@
     <string name="copy">Copy</string>
     <string name="input_hint">Input…</string>
     <string name="output_hint">Output</string>
+    <string name="snackbar_copied">Copied output!></string>
+    <string name="helper_empty">Input empty</string>
+    <string name="helper_encoding">No 3y3 detected, encoding</string>
+    <string name="helper_decoding">3y3 detected, decoding</string>
 </resources>

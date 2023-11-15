@@ -29,12 +29,17 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             val clip = ClipData.newPlainText("Y3Y Output", binding.output.text)
             clipMan.setPrimaryClip(clip)
-            Snackbar.make(view, "Copied output", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, getString(R.string.snackbar_copied), Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
         binding.input.doAfterTextChanged {
-            binding.output.setText(transcode3y3(binding.input.text.toString()))
+            val text = binding.input.text.toString()
+            if (text.isEmpty()) {
+                binding.inputLayout.helperText = getString(R.string.helper_empty)
+            } else {
+                binding.output.setText(transcode3y3(binding.input.text.toString()))
+            }
         }
     }
 
@@ -46,9 +51,11 @@ class MainActivity : AppCompatActivity() {
     private fun transcode3y3(text: String): String {
         for (cp in text.codePoints()) {
             if (cp in 0xe0001..0xe007e) {
+                binding.inputLayout.helperText = getString(R.string.helper_decoding)
                 return text.codePoints().map(from3y3).codePointsToString()
             }
         }
+        binding.inputLayout.helperText = getString(R.string.helper_encoding)
         return text.codePoints().map(to3y3).codePointsToString()
     }
 

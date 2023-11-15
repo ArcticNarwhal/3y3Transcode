@@ -33,6 +33,8 @@
                 android:id="@+id/inputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/input_hint"
+                app:helperText="@string/helper_empty"
                 app:layout_constraintBottom_toTopOf="@id/outputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +44,6 @@
                     android:id="@+id/input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/input_hint"
                     android:inputType="textMultiLine"
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -52,6 +53,7 @@
                 android:id="@+id/outputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/output_hint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,8 +64,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="@string/output_hint"
                     android:inputType="none"
+                    android:textIsSelectable="true"
                     android:editable="false"
                     android:importantForAutofill="no" />
             </com.google.android.material.textfield.TextInputLayout>
